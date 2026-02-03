@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Private 💙</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Private 💙</h1>
+    <p>This page is just for you.</p>
+
+    <input
+      type="password"
+      id="passwordInput"
+      placeholder="Enter password"
+      style="padding:12px; font-size:16px; border-radius:10px; border:1px solid #ccc;"
+    />
+
+    <br><br>
+
+    <button id="enterBtn">Enter</button>
+
+    <p id="error" style="color:#ff4d6d; display:none; margin-top:15px;">
+      Wrong password 🥺
+    </p>
+  </div>
+
+  <script>
+    const correctPassword = "221100"; // CHANGE THIS
+
+    const enterBtn = document.getElementById("enterBtn");
+    const input = document.getElementById("passwordInput");
+    const error = document.getElementById("error");
+
+    enterBtn.addEventListener("click", () => {
+      if (input.value === correctPassword) {
+        localStorage.setItem("accessGranted", "true");
+        window.location.href = "index.html";
+      } else {
+        error.style.display = "block";
+      }
+    });
+  </script>
+
+</body>
+</html>
